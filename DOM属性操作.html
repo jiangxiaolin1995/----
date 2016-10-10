@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM操作属性</title>
+        <script src="./jquery-3.1.1.js"></script>
+    </head>
+    <body>
+        <p title="选择你最喜欢的水果">你最喜欢的水果</p>
+        <strong>你最不喜欢的水果是</strong><br />
+        <ul>
+            <li title="苹果">苹果</li>
+            <li title="橘子">橘子</li>
+            <li title="菠萝">菠萝</li>
+
+        </ul>
+        <br />
+
+        <strong>你最不喜欢的水果是</strong><br />
+        <script>
+        $(function(){
+
+            //  属性操作
+            // $('p').attr('title', '水果');
+
+            $('p').attr({'title': '水果',  'class' : 'a'});//  注意花括号
+
+            //  删除属性
+
+            $('p').removeAttr('title');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        });
+
+
+
+
+        </script>
+    </body>
+</html>

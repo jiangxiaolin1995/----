@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>设置获取HTML 文本的值</title>
+        <script src="./jquery-3.1.1.js"></script>
+        <style>
+        .p{
+            background: red;
+        }
+
+
+        </style>
+    </head>
+    <body>
+        <input type="text" name="name" value="">
+        <p title="选择你最喜欢的水果">你最喜欢的水果<i>什么水果</i></p>
+        <strong>你最不喜欢的水果是</strong><br />
+        <ul>
+            <li title="苹果">苹果</li>
+            <li title="橘子">橘子</li>
+            <li title="菠萝">菠萝</li>
+
+        </ul>
+        <br />
+
+        <strong>你最不喜欢的水果是</strong><br />
+        <script>
+        $(function(){
+            // var p_html = $('p').html();
+            // alert(p_html);
+
+            // $('p').html('<strong>你不喜欢什么水果</strong><br />'); // p 中的元素都会被替换
+            // 包括文本元素和标签   标签作为标签输出
+
+            // text() 方法  类似于 javascript中的 innerText 属性
+
+            $('p').text('<strong>你不喜欢什么水果</strong>'); //  也是将 p 标签内的都有元素替换  基本同上  不同  标签显示为文本输出
+
+            // val() 方法
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        });
+
+
+
+
+        </script>
+    </body>
+</html>
