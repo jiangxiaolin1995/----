@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>常用模拟</title>
+        <script src="./jquery-3.1.1.js"></script>
+        <style media="screen">
+            .over{
+                background: red;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div>
+                dsxfgsdftg
+        </div>
+            <button>123</button>
+    <script>
+
+        $(function(){
+            // $('div').bind('mouseover mouseout', function(event) {
+            //     /* Act on the event */
+            //     $(this).toggleClass('over');
+            // });
+
+
+
+        //  添加事件命名空间
+
+            // $('div').bind('click.plugin', function(event) {
+            //     /* Act on the event */
+            //     $('body').append('<p>click事件</p>');
+            // });
+            // $('div').bind('mouseover.plugin', function(event) {
+            //     /* Act on the event */
+            //     $('body').append('<p>mouseover事件 </p>');
+            // });
+            // $('div').bind('dblclick', function(event) {
+            //     /* Act on the event */
+            //     $('body').append('<p>dblclick事件 </p>');
+            // });
+            //
+            // $('button').click(function(event) {
+            //     /* Act on the event */
+            //     $('div').unbind('.plugin');
+            //
+            // //  只删除有 .plugin  命名空间的事件 没有命名空间的事件依然存在
+            //
+            // });
+
+            //相同的事件名称 不同命名空间执行方法
+            // 未找到错误
+            $('div').bind('click.plugin', function(event) {
+                /* Act on the event */
+                $('body').append('<p>click.plugin 事件</p>');
+            });
+            $('div').bind('click', function(event) {
+                /* Act on the event */
+                $('body').append('<p>click事件</p>');
+            });
+
+            $('button').click(function(event) {
+                /* Act on the event */
+                $('div').trigger("click!"); // 后面的 ！ 是为了匹配不包含在命名空间的事件  若都执行 则不需要叹号
+
+
+
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    </body>
+</html>

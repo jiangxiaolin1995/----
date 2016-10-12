@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>常用模拟</title>
+        <script src="./jquery-3.1.1.js"></script>
+    </head>
+    <body>
+        <input type="button" id="btn" value="点击我">
+        <div id="test">
+
+        </div>
+    </body>
+    <script>
+        $(function(){
+            // $('#btn').bind('myClick', function(event) {
+            //     /* Act on the event */
+            //     $('#test').append('<p>我的自定义事件</p>')
+            // });
+            //
+            // $('#btn').trigger('myClick');
+
+            // 传递数据
+            $('#btn').bind('myClick', function(event,message1,message2) {
+                /* Act on the event */
+                $('#test').append("<p> "+message1 +message2 +"</p>");
+
+            });
+            $('#btn').trigger('myClick' , ["我的自定义" , "事件"]);
+
+        })
+
+
+
+
+
+
+    </script>
+
+</html>
