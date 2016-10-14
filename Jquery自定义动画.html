@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>自定义动画</title>
+        <script type="text/javascript" src="jquery-3.1.1.js" ></script>
+        <style media="screen">
+            #panel{
+                position: relative;
+                width: 100px;
+                height: 100px;
+                border: 1px solid #0050D0;
+                background: #96E555;
+                cursor: pointer;
+            }
+            .head{height: 20px;
+                width: 500px;
+                background: red;
+                border: black 1px solid;
+                margin: 0px;
+
+            }
+            .content{
+                width: 500px;
+                border: black 1px solid;
+                margin: 0px;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="panel">
+            <!-- <h5 class="head">什么是jquery</h5>
+            <div class="content" >
+                JQuery是继prototype之后又一个优秀的Javascript库。它是轻量级的js库 ，它兼容CSS3，还兼容各种浏览器（IE 6.0+, FF 1.5+, Safari 2.0+, Opera 9.0+），jQuery2.0及后续版本将不再支持IE6/7/8浏览器。jQuery使用户能更方便地处理HTML（标准通用标记语言下的一个应用）、events、实现动画效果，并且方便地为网站提供AJAX交互。jQuery还有一个比较大的优势是，它的文档说明很全，而且各种应用也说得很详细，同时还有许多成熟的插件可供选择
+            </div> -->
+        </div>
+
+        <script type="text/javascript">
+            $(function(){
+
+                $('#panel').click(function(event) {
+                    /* Act on the event */
+                        $(this).animate({left : '+=500px'}, 3000);
+                    // += -= 累加累减动画 表示在当前位置上累加或累减
+
+
+                    // 多重动画 动画同时进行
+                    // $(this).animate({left : "500px",height : "200px"}, 3000);
+
+                    //  按顺序执行多个动画
+                    // $(this).animate({left : '500px'}, 3000);
+                    // $(this).animate({height : '300px'}, 3000);
+
+                    // 综合动画
+
+                    // $('#panel').css('opacity', '0.5');
+                    // $('#panel').click(function(event) {
+                        // $(this).animate({left : "400px" , height : "200px" , opacity:"1"}, 3000).fadeOut('slow');
+                        // 通过链式写法对动画效果进行排队
+
+                    // 动画回调函数
+                        // $(this).animate({left : "400px" , height : "200px" , opacity:"1"}, 3000).animate({top : "200px" , width : "200px"}, 3000,function(){
+                        //     $(this).css('border', '5px solid red');
+                        // });
+                // 停止动画和判断是否处于动画状态
+                    // $('#panel').hover(function() {
+                    //     $(this).stop().animate({height : "150" , width : "300"}, 2000);
+                    // }, function() {
+                    //     $(this).stop().animate({height : "22" , width :"60"}, 300)
+                    // });
+
+                    // $('#panel').hover(function() {
+                    //     $(this).stop().animate({height : "150" }, 2000)
+                    //     // 如果在此时触发光标移除事件  则执行下面的动画 而非光标移除事件中的动画
+                    //     .animate({width : "300"}, 300);
+                    // }, function() {
+                    //     $(this).stop().animate({height : "22" }, 300).animate({ width :"60"}, 300);
+                    // });
+
+
+                    // 如果 stop()参数为true 则跳过后面的动画 即停止后面所有的动画队列
+                    // $('#panel').hover(function() {
+                    //     $(this).stop(true).animate({height : "150" }, 2000)
+                    //     // 如果在此时触发光标移除事件  则执行下面的动画 而非光标移除事件中的动画
+                    //     .animate({width : "300"}, 300);
+                    // }, function() {
+                    //     $(this).stop(true).animate({height : "22" }, 300).animate({ width :"60"}, 300);
+                    // });
+                    //
+                    // // 判断元素是否处于动画状态
+                    // if (!$(element).is(':animated')) {
+                    //     // 如果当前没有进行动画 则添加新动画
+                    //     // 当用户快速在某个元素上执行 animate() 动画时，就会出现动画积累 解决办法就是判断元素是否处于动画状态  如果元素不处于动画状态 则为元素添加新动画
+                    //
+                    // }
+
+                    // 延迟动画   delay() 会在动画执行完毕后 等待参数中的时间
+
+                    $(this).animate({left : "+=400px" , height : "+=200px" , opacity : "1"} , 3000).delay(1000).animate({top : "200px" , width : "200px" }  , 3000).delay(2000).fadeOut('slow');
+                });
+
+                    // 其他动画方法
+
+                    // toggle() 方法 切换元素的可见状态
+
+                    // $('#panel h5.head').click(function(){
+                    //     $(this).next().toggle();
+                    //
+                    // });
+
+                    // slideToggle() 方法 通过高度的变化切换元素的可见状态
+                    // $('#panel h5.head').click(function(){
+                    //     $(this).next().slideToggle();
+                    //
+                    // });
+
+                    // fadeTo() 方法 通过把元素的不透明度以渐进的方式调整到指定的值
+                    // $('#panel h5.head').click(function(){
+                    //     $(this).next().fadeTo(6000,1);
+                    //
+                    // });
+
+                    // fadeToggle() 通过不透明度变化来切换元素的可见性
+                    // $('#panel h5.head').click(function(){
+                    //     $(this).next().slideDown(5000);
+                    //
+                    // });
+                    // $('#panel h5.head').click(function(){
+                    //     $(this).next().fadeTo(50);
+                    //
+                    // });
+
+
+
+
+
+
+
+            });
+
+
+
+
+
+
+        </script>
+    </body>
+</html>
