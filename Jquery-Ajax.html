@@ -3,30 +3,46 @@
     <head>
         <meta charset="utf-8">
         <title>ajax</title>
+        <script src="jquery-3.1.1.js"></script>
     </head>
     <body>
-        <input type="button" onclick="Ajax()" value="Ajax提交">
-        <div id="resText"></div>
+        <input type="button" value="Ajax获取" id="btn">
 
 
         <script>
-            $(function(){
-                function Ajax(){
-                    var xmlHttpReq = null;
-                    if(window.ActiveXObject){
-                    	xmlHttpReq = new Active XObject('Microsoft.XMLHTTP');
-                    	
-                    }else if(window.XMLHttpRequest){
-                    	xmlHttpReq = new XXMLHttpRequest;
-                    }
+            // $(function(){
+            //     //  load() 方法 能载入远程 html 代码并插入DOM中
+            //     //  load( url [,data] [, callback])
+            //     //  url  string 请求 html 页面的 url 地址
+            //     //  data(可选) Object 发送至服务器的 key/value 属性
+            //     //  callback(可选) Function  请求完成时的回调函数 无论请求成功或失败
+            //     $('#send').click(function(event) {
+            //         /* Act on the event */
+            //         $('#resText').load('test.html');
+            //     });
+            // })
 
+            window.onload = function(){
+                var oBtn = document.getElementById('btn');
+                oBtn.onclick = function(){
+                    // 打开浏览器
+                    var xhr =new XMLHttpRequest;
+                    // 在地址栏输入地址
+                    xhr.open('get' , 'test.html' , true);
+                    //  提交
+
+                    //等待服务器返回内容
+                    xhr.onreadystatechange = function(){
+
+                        if (xhr.readyState == 4) {
+                            alert(xhr.responseText);
+
+                        }
+                    }
 
                 }
 
-
-            })
-
-
+            }
 
         </script>
     </body>
