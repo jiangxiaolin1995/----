@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ajax全局方法</title>
+        <script src="jquery-3.1.1.js"></script>
+    </head>
+    <body>
+        <input type="button" value="Ajax全局方法" id="btn">
+        <div id="box"></div>
+
+        <script>
+            $(function(){
+                // $.get() url data callback type 即服务器返回的内容格式 包括 xml、html、json、jsonp、text  第一个必选 第三个可选
+                $('#btn').click(function(event) {
+                    /* Act on the event */
+                    // $.get('123.php?url=baidu',function(response,status,xhr){
+                    //     $('#box').html(response);
+                    //     //紧跟在问价后面加 ?url传参
+                    //
+                    // });
+
+                    // $.get('123.php','url=baidu',function(response,status,xhr){
+                    //     $('#box').html(response);
+                    //     //直接通过 第二个参数data 以字符串形式的键值对传参  自动转换成上述形式
+                    //
+                    // });
+
+                    // $.get('123.php',{
+                    //     url :'baidu'
+                    // },function(response,status,xhr){
+                    //     $('#box').html(response);
+                    //     //直接通过 第二个参数data 以对象形式的键值对传参  自动转换成上述形式
+                    //
+                    // });
+                    // post 提交不能使用问号传参
+                    // $.post('123.php','url=baidu',function(response,status,xhr){
+                    //     $('#box').html(response);
+                    //     //post也可以 以字符串形式的键值对传参  自动转换成上述形式
+                    //
+                    // });
+
+
+                    // $.post('123.php',{
+                    //     url :'baidu'
+                    // },function(response,status,xhr){
+                    //     $('#box').html(response);
+                    //     //post形式可以 以对象形式的键值对传参
+                    // },'xml ');  // PHP文件返回的是纯文本  默认是html或text 如果强行以xml和json 则无法获取数据
+
+                    //
+                    // $.post('123.json',function(response,status,xhr){
+                    //     alert(response[0].url);
+                        //直接通过 第二个参数data 以对象形式的键值对传参  自动转换成上述形式
+
+                    // $.post() 和 $.get()  不同
+                    // GET请求是通过URL提交额，而POST请求则是HTTP消息实体提交的
+                    // GET提交文件大小限制在2KB以内，而POST方式不受限制
+                    // GET方法会被缓存下来，可能有安全性问题，而POST没有这个问题
+
+
+
+                    // $.getScript()  $.getJSON()
+                    // $.getScript() 用于特定的JS文件 在特定的情况下加载JS文件
+                    // $.getJSON()专门用于加载JSON文件
+
+
+                    // $.getJSON('123.json',function(response,status,xhr){
+                    //     alert(response[0].url);
+
+
+                    $.getScript('test.js');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                });
+
+            });
+
+        </script>
+    </body>
+</html>

@@ -6,8 +6,8 @@
         <script src="jquery-3.1.1.js"></script>
     </head>
     <body>
-        <input type="button" value="Ajax获取" id="btn">
-
+        <input type="button" value="Ajax异步加载数据" id="btn">
+        <div id="box"></div>
 
         <script>
             // $(function(){
@@ -22,27 +22,38 @@
             //     });
             // })
 
-            window.onload = function(){
-                var oBtn = document.getElementById('btn');
-                oBtn.onclick = function(){
-                    // 打开浏览器
-                    var xhr =new XMLHttpRequest;
-                    // 在地址栏输入地址
-                    xhr.open('get' , 'test.html' , true);
-                    //  提交
+                $(function(){
+                    // $('#btn').click(function(){
+                    //     $('#box').load('123.php?url=baidu');//往 id 为box的div里添加 类似于append  get
+                    //     方式提交
 
-                    //等待服务器返回内容
-                    xhr.onreadystatechange = function(){
 
-                        if (xhr.readyState == 4) {
-                            alert(xhr.responseText);
+                    // });
 
-                        }
-                    }
+                    //post 提交方式 
+                    $('#btn').click(function(){
+                        $('#box').load('123.php',{
+                            url :'baidu'
+                        },function(response,status,xhr){ 
+                            // responseText 请求返回 从服务器返回的数据
+                            // alert(response)
 
-                }
+                            // textStatus 请求状态 成功返回success 错误返回error
+                            // if(status =='success')
+                            //     alert('成功后的处理');
 
-            }
+                            // XMLHttpRequest XMLHttprequest对象 含有前两个属性 status 响应的HTTP状态 statusText HTTP状态的说明
+                            // alert(xhr.responseText);
+                            alert(xhr.statusText);
+                            
+                        });
+
+
+                    });
+
+
+
+                })
 
         </script>
     </body>
