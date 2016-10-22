@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ajax</title>
+        <script src="jquery-3.1.1.js"></script>
+    </head>
+    <body>
+        <form>
+            用户名：<input type="text" name="user">
+            邮件：<input type="text" name="email">
+            <!-- <input type="radio" name="sex" value="男">男
+            <input type="radio" name="sex" value="女">女 -->
+            <input type="button" value="提交">
+        </form>
+        <span class="loadding" style="display:none">正在加载中</span>
+        <span class="loaddingError" style="display:none">加载失败</span>
+        <div id="box"></div>
+        <script>
+            $(function(){
+
+
+
+                //加载请求
+                //.ajacStart() 请求开始时(未完成其他请求)激活
+                //.ajaxStop()  请求结束时(所有请求都结束了)激活
+
+                // $('input[type=button]').click(function(event) {
+                //         /* Act on the event */
+                //         $.ajax({
+                //             type:'POST',
+                //             url:'123.php',
+                //             data:{
+                //                 url:'baidu'
+                //             },
+                //             success:function(response,status,xhr){
+                //                 $('#box').html(response);
+                //
+                //             },timeout:500
+                //         });
+                //     });
+                // $(document).ajaxStart(function(event, xhr, settings) {
+                //     $('.loadding').show();
+                //
+                // }).ajaxStop(function() {
+                //     if($('.loaddingError').text('加载失败')){
+                //         $('.loadding').hide();
+                //     }
+                //     $('.loaddingError').show();
+                //
+                // });
+                //错误处理
+                // $('input[type=button]').click(function(event) {
+                //         /* Act on the event */
+                //         $.ajax({
+                //             type:'POST',
+                //             url:'1233.php',
+                //             data:{
+                //                 url:'baidu'
+                //             },
+                //             success:function(response,status,xhr){
+                //                 $('#box').html(response);
+                //
+                //             },
+                //             error:function(xhr,errorText,errortype){
+                //
+                //                 // alert('错误');
+                //                 // alert(errorText + ":" + errortype)
+                //                 alert(xhr.status + ":" + xhr.statusText)
+                //             }
+                //         });
+                // });
+                // //
+                // $.post('1234.php').error(function(xhr,errorText,errortype){
+                //     // alert('错误');
+                //    //                 // alert(errorText + ":" + errortype)
+                //    //                 alert(xhr.status + ":" + xhr.statusText)
+                // });
+
+                // $(document).ajaxError(function(event, xhr, settings ,errortype) {
+                //     // alert(event.type);
+                //     // alert(event.target);
+                //     // for(var i in event){
+                //     //     document.write(i + "<br />")
+                //     // }
+                //     // alert(settings);
+                //     // for(var i in settings){
+                //     //     document.write(i + "<br />")
+                //     // }
+                //     // alert(settings.url+","+settings.type);
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                // })
+                // 请求全局事件  .ajaxStart() .ajaxStop() .ajaxError()  他们都是请求发送之前触发的全局事件
+                // .ajaxSuccess() 对应一个局部方法：.done() 请求完成时执行 .ajaxError() .fail()
+                // .ajaxComplete() 对应一个局部方法：.always() 请求完成后注册一个回调函数
+                // .ajaxSend() 没有对应的局部方法，只有属性beforeSend 请求发送之前要绑定的函数
+
+            $('input[type=button]').click(function(event) {
+                // $.post('user.php',$('form').serialize()).done(function(event, xhr, settings) {
+                //     alert('请求成功后');
+                // }).always(function(event, xhr, settings) {
+                //     alert('请求完成后');
+                // });
+                $.ajax({
+                    url:'123.php',
+                    type:'POST',
+                    data:$('form').serialize(),
+                    success:function(response,status,xhr){
+                        $('#box').html(response);
+
+                    },complete:function(status,xhr){
+                        alert('完成' +xhr.responseText+'-'+status);
+
+                    },beforeSend:function(xhr，setting){
+                        alert('请求之前' +xhr.responseText+'-'+status);
+
+                    }
+                });
+
+
+
+
+
+            });
+
+            // $(document).ajaxSend(function(event, xhr, settings) {
+            //     alert('发送请求之前');// 最先执行 不管防止顺序如何
+            // }).ajaxComplete(function(event, xhr, settings) {
+            //     alert('请求完成后，不管是否失败成功');
+            // }).ajaxSuccess(function(event, xhr, settings) {
+            //     alert('请求成功后');// .ajaxSend() 先执行  若成功 这先执行这个 若失败 则先执行 .ajaxError()
+            // }).ajaxError(function(event, xhr, settings) {
+            //     alert('请求失败后'); // 若成功 则不执行
+            // })
+            //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            });
+        </script>
+    </body>
+</html>

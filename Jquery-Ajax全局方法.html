@@ -49,8 +49,8 @@
                     // },'xml ');  // PHP文件返回的是纯文本  默认是html或text 如果强行以xml和json 则无法获取数据
 
                     //
-                    // $.post('123.json',function(response,status,xhr){
-                    //     alert(response[0].url);
+                    $.post('123.json',function(response,status,xhr){
+                        alert(response[0].url);
                         //直接通过 第二个参数data 以对象形式的键值对传参  自动转换成上述形式
 
                     // $.post() 和 $.get()  不同
@@ -69,7 +69,7 @@
                     //     alert(response[0].url);
 
 
-                    $.getScript('test.js');
+                    // $.getScript('test.js');
 
 
 
